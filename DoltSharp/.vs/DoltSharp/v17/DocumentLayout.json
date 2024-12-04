@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|c:\\users\\itsda\\desktop\\dtlshrp repairs\\doltsharprepairs\\doltsharp\\doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|solutionrelative:doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|c:\\users\\itsda\\desktop\\dtlshrp repairs\\doltsharprepairs\\doltsharp\\doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|solutionrelative:doltsharp\\forms\\frmmainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\doltsharp\\forms\\frmnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|solutionrelative:doltsharp\\forms\\frmnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\doltsharp\\forms\\frmproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|solutionrelative:doltsharp\\forms\\frmproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7601779A-2990-468A-8FBB-0BEBC302F73A}|DoltSharp\\DoltSharp.csproj|C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\doltsharp\\services\\taskfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,8 +34,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmNotifications.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmNotifications.cs",
+              "RelativeDocumentMoniker": "DoltSharp\\Forms\\FrmNotifications.cs",
+              "ToolTip": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmNotifications.cs [Design]",
+              "RelativeToolTip": "DoltSharp\\Forms\\FrmNotifications.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T17:34:39.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmProject.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmProject.cs",
+              "RelativeDocumentMoniker": "DoltSharp\\Forms\\FrmProject.cs",
+              "ToolTip": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmProject.cs [Design]",
+              "RelativeToolTip": "DoltSharp\\Forms\\FrmProject.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T17:33:03.277Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -48,14 +78,14 @@
               "RelativeDocumentMoniker": "DoltSharp\\Forms\\FrmMainPage.cs",
               "ToolTip": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmMainPage.cs",
               "RelativeToolTip": "DoltSharp\\Forms\\FrmMainPage.cs",
-              "ViewState": "AgIAACcCAAAAAAAAAAAqwDMCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwFoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T17:08:18.65Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TaskFile.cs",
               "DocumentMoniker": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Services\\TaskFile.cs",
               "RelativeDocumentMoniker": "DoltSharp\\Services\\TaskFile.cs",
@@ -67,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "FrmConfig.cs [Design]",
               "DocumentMoniker": "C:\\Users\\itsda\\Desktop\\DTLSHRP repairs\\DoltSharpRepairs\\DoltSharp\\DoltSharp\\Forms\\FrmConfig.cs",
               "RelativeDocumentMoniker": "DoltSharp\\Forms\\FrmConfig.cs",

@@ -344,7 +344,6 @@ namespace DoltSharp
         DgvProjectsList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = defaultValue;
     }
 
-    // Opcional: Muestra un mensaje informativo
     MessageBox.Show(
         $"Error en la celda [{e.RowIndex}, {e.ColumnIndex}]. Se asignó un valor predeterminado.",
         "Error de datos",
