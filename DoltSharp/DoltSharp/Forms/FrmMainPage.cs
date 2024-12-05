@@ -28,50 +28,52 @@ namespace DoltSharp
         private Timer timer = new Timer();
         private readonly TaskServices _taskServices;
         private Timer timerNotificaciones;
+        private readonly ReportService _reportService;
+
         public FrmMainPage()
         {
             InitializeComponent();
 
             _mainPageServices = new MainPageServices();
+            _reportService = new ReportService();
+            _taskServices = new TaskServices();
 
-            // Configuración de DataGridView
+            projects = _mainPageServices.LoadProjects();
+            tasks = _mainPageServices.LoadTasks();
+
             ConfigureProjectDataGridView();
             ConfigureTaskDataGridView();
 
-            // Suscribirse a los eventos DataError
-            DgvProjectsList.DataError += DgvProjectsList_DataError;
-            DgvTaskList.DataError += DgvTaskList_DataError;
-
-            // Carga inicial de datos
             LoadProjectsIntoGrid();
             LoadTasksIntoGrid();
 
-            // Inicializa servicios y listas
-            _mainPageServices = new MainPageServices();
-            projects = new List<Project>();
-            tasks = new List<DoltSharp.Models.Task>();
-            _taskServices = new TaskServices(); // Inicializar TaskServices
 
-            
         }
         private void MostrarFormularioDeNotificaciones()
         {
-            // Obtener las notificaciones desde TaskServices
-            var notificaciones = _taskServices.HandleNotifications();
+            // Obtener las tareas próximas a vencer o ya vencidas
+            var tareasVencidas = _taskServices.HandleNotifications();
 
-            // Si hay notificaciones, abrir el formulario de notificaciones
-            if (notificaciones.Count > 0)
+            if (tareasVencidas.Count > 0)
             {
-                FrmNotifications form = new FrmNotifications(notificaciones); // Cambié el nombre del formulario
-                form.ShowDialog();
+                string mensaje = "Tareas próximas o ya vencidas:\n\n";
+
+                int contador = 1;
+                foreach (var tarea in tareasVencidas)
+                {
+                    mensaje += $"{contador}. La tarea \"{tarea.TaskName}\" ya está vencida.\n" +
+                               $"   Fecha límite: {tarea.TaskDeadline:dd/MM/yyyy}\n\n";
+                    contador++;
+                }
+
+                MessageBox.Show(mensaje, "Notificaciones de Tareas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("No hay tareas próximas a vencer.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void BtnSalida_Click(object sender, EventArgs e)
+            private void BtnLeave_Click(object sender, EventArgs e)
         {
             var result = MetroFramework.MetroMessageBox.Show(this,
                  "¿Estás seguro de que deseas cerrar la sesión?",
@@ -91,6 +93,10 @@ namespace DoltSharp
                 this.Close();
             }
         }
+        private void BtnSalida_Click(object sender, EventArgs e)
+        {
+            
+        }
 
         private void BtnEditarInformarcion_Click(object sender, EventArgs e)
         {
@@ -99,18 +105,19 @@ namespace DoltSharp
             this.Close();
         }
 
-        private void BtnNewTask_Click(object sender, EventArgs e)
-        {
-            FrmTask task = new FrmTask();
-            task.Show();
-            this.Hide();
-        }
-
         private void BtnNewProject_Click(object sender, EventArgs e)
         {
             FrmProject project = new FrmProject();
             project.Show();
             this.Hide();
+        }
+
+        private void BtnNewTask_Click(object sender, EventArgs e)
+        {
+            FrmTask task = new FrmTask();
+            task.Show();
+            this.Hide();
+           
         }
 
         private void BtnConfiguration_Click(object sender, EventArgs e)
@@ -422,29 +429,6 @@ namespace DoltSharp
                 }
             }
         }
-
-        private void BtnViewReports_Click(object sender, EventArgs e)
-        {
-            TaskDao taskDao = new TaskDao();
-            TaskFile taskFile = new TaskFile();
-            List<Task> tasks = new List<Task>();
-            tasks = taskFile.GetAllTasks();
-
-            ReportDataSource dataSource = new ReportDataSource("DsDatos", tasks);
-
-            FrmReports frmReports = new FrmReports();
-            frmReports.reportViewer1.LocalReport.DataSources.Clear();
-            frmReports.reportViewer1.LocalReport.DataSources.Add(dataSource);
-
-            //Configurar el archivo de reporte
-            frmReports.reportViewer1.LocalReport.ReportEmbeddedResource = "DoltSharp.Reports.RptTask.rdlc";
-
-            //Refrescarv el reporte 
-            frmReports.reportViewer1.RefreshReport();
-
-            //Visualizar el reporte 
-            frmReports.ShowDialog();
-        }
         private void ConfigurarNotificacionesDiarias()
         {
             timerNotificaciones = new Timer
@@ -510,52 +494,47 @@ namespace DoltSharp
             this.Style = (MetroColorStyle)Enum.Parse(typeof(MetroColorStyle), appConfigServices.MyStyle);
         }
 
-        private void BtnViewReport_Click(object sender, EventArgs e)
+        private void BtnShowNotification_Click(object sender, EventArgs e)
         {
-            ProjectDao projectDao = new ProjectDao();
-            ProyectFile projectFile = new ProyectFile();
-            List<Project> projects = new List<Project>();
-            projects = projectFile.GetAllProjects();
-
-            ReportDataSource dataSource = new ReportDataSource("DsDatos", projects);
-
-            FrmReports frmReports = new FrmReports();
-            frmReports.reportViewer1.LocalReport.DataSources.Clear();
-            frmReports.reportViewer1.LocalReport.DataSources.Add(dataSource);
-
-            //Configurar el archivo de reporte
-            frmReports.reportViewer1.LocalReport.ReportEmbeddedResource = "DoltSharp.Reports.RptProject.rdlc";
-
-            //Refrescarv el reporte 
-            frmReports.reportViewer1.RefreshReport();
-
-            //Visualizar el reporte 
-            frmReports.ShowDialog();
-
+            MostrarFormularioDeNotificaciones();    
         }
 
-        private void BtnViewReports_Click_1(object sender, EventArgs e)
+        private void BtnShowReport_Click(object sender, EventArgs e)
         {
-            TaskDao taskDao = new TaskDao();
-            TaskFile taskFile = new TaskFile();
-            List<Task> tasks = new List<Task>();
-            tasks = taskFile.GetAllTasks();
-            ReportDataSource dataSource = new ReportDataSource("DsDatos", tasks);
-            FrmReports frmReports = new FrmReports();
-            frmReports.reportViewer1.LocalReport.DataSources.Clear();
-            frmReports.reportViewer1.LocalReport.DataSources.Add(dataSource);
-            //Configurar el archivo de reporte
-            frmReports.reportViewer1.LocalReport.ReportEmbeddedResource = "DoltSharp.Reports.RptTask.rdlc";
-            //Refrescarv el reporte 
-            frmReports.reportViewer1.RefreshReport();
-            //Visualizar el reporte 
-            frmReports.ShowDialog();
+            var result = MessageBox.Show(
+     "¿Qué reporte deseas visualizar?\n\n" +
+     "Sí: Reporte de Tareas\n" +
+     "No: Reporte de Proyectos\n" +
+     "Cancelar: Salir sin abrir un reporte.",
+     "Seleccionar Reporte",
+     MessageBoxButtons.YesNoCancel,
+     MessageBoxIcon.Question
+ );
+
+            var reportService = new ReportService();
+
+            if (result == DialogResult.Yes)
+            {
+                // Mostrar reporte de tareas
+                var taskService = new TaskFile();
+                var tasks = taskService.GetAllTasks();
+                reportService.ShowTaskReport(tasks);
+            }
+            else if (result == DialogResult.No)
+            {
+                // Mostrar reporte de proyectos
+                var projectService = new ProyectFile();
+                var projects = projectService.GetAllProjects();
+                reportService.ShowProjectReport(projects);
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                // Acción para cancelar
+                MessageBox.Show("Operación cancelada.", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void BtnShowNotifications_Click(object sender, EventArgs e)
-        {
-            MostrarFormularioDeNotificaciones();
-        }
+       
     }
 }
 
