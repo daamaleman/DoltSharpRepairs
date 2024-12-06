@@ -1,0 +1,42 @@
+-------------------------------
+Tarea: 1
+ID de la Tarea: 9970
+Nombre de la Tarea: wsqdw
+Descripción: wdwefwe
+Fecha de Inicio: 04/12/2024
+Fecha Límite: 03/12/2024
+Prioridad: Urgente
+Estado: No iniciado
+-------------------------------
+-------------------------------
+Tarea: 2
+ID de la Tarea: 4838
+Nombre de la Tarea: wefw
+Descripción: wefwe
+Fecha de Inicio: 04/12/2024
+Fecha Límite: 03/12/2024
+Prioridad: Importante
+Estado: No iniciado
+-------------------------------
+-------------------------------
+Tarea: 3
+ID de la Tarea: 3273
+Nombre de la Tarea: Fisica
+Descripción: Esta tarea es paja
+Fecha de Inicio: 04/12/2024
+Fecha Límite: 05/12/2024
+Prioridad: Alta
+Estado: No iniciado
+-------------------------------
+-------------------------------
+Tarea: 4
+ID de la Tarea: 7108
+Nombre de la Tarea: elias
+Descripción: 45
+4
+4789
+Fecha de Inicio: 04/12/2024
+Fecha Límite: 05/12/2024
+Prioridad: Importante
+Estado: No iniciado 
+-------------------------------
