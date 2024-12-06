@@ -1169,3 +1169,4 @@ C:\Users\elias\OneDrive\Imágenes\Escritorio\DoltSharp-PF\DoltSharp (Verdadero)\
 C:\Users\elias\OneDrive\Imágenes\Escritorio\DoltSharp-PF\DoltSharp (Verdadero)\DoltSharpRepairs\DoltSharp\DoltSharp\obj\Debug\DoltSharp.csproj.Up2Date
 C:\Users\elias\OneDrive\Imágenes\Escritorio\DoltSharp-PF\DoltSharp (Verdadero)\DoltSharpRepairs\DoltSharp\DoltSharp\obj\Debug\DoltSharp.exe
 C:\Users\elias\OneDrive\Imágenes\Escritorio\DoltSharp-PF\DoltSharp (Verdadero)\DoltSharpRepairs\DoltSharp\DoltSharp\obj\Debug\DoltSharp.pdb
+C:\Users\elias\OneDrive\Imágenes\Escritorio\DoltSharp-PF\DoltSharp (Verdadero)\DoltSharpRepairs\DoltSharp\DoltSharp\obj\Debug\DoltSharp.Forms.FrmCustomDialog.resources

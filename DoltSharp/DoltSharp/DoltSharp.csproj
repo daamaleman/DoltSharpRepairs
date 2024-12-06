@@ -96,6 +96,12 @@
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Dao\UserDao.cs" />
+    <Compile Include="Forms\FrmCustomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCustomDialog.Designer.cs">
+      <DependentUpon>FrmCustomDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmNotifications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     <Compile Include="Services\UserRegisterFile.cs" />
     <EmbeddedResource Include="Forms\FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCustomDialog.resx">
+      <DependentUpon>FrmCustomDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmNotifications.resx">
       <DependentUpon>FrmNotifications.cs</DependentUpon>

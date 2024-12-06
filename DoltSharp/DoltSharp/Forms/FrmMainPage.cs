@@ -73,7 +73,7 @@ namespace DoltSharp
                 MessageBox.Show("No hay tareas próximas a vencer.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-            private void BtnLeave_Click(object sender, EventArgs e)
+        private void BtnLeave_Click(object sender, EventArgs e)
         {
             var result = MetroFramework.MetroMessageBox.Show(this,
                  "¿Estás seguro de que deseas cerrar la sesión?",
@@ -95,7 +95,7 @@ namespace DoltSharp
         }
         private void BtnSalida_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void BtnEditarInformarcion_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace DoltSharp
             FrmTask task = new FrmTask();
             task.Show();
             this.Hide();
-           
+
         }
 
         private void BtnConfiguration_Click(object sender, EventArgs e)
@@ -343,23 +343,23 @@ namespace DoltSharp
         }
         private void DgvProjectsList_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-    // Verifica si la columna con error es un ComboBoxColumn
-    if (DgvProjectsList.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn comboBoxColumn)
-    {
-        // Usa el primer valor permitido como predeterminado
-        var defaultValue = ((List<string>)comboBoxColumn.DataSource)[0];
-        DgvProjectsList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = defaultValue;
-    }
+            // Verifica si la columna con error es un ComboBoxColumn
+            if (DgvProjectsList.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn comboBoxColumn)
+            {
+                // Usa el primer valor permitido como predeterminado
+                var defaultValue = ((List<string>)comboBoxColumn.DataSource)[0];
+                DgvProjectsList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = defaultValue;
+            }
 
-    MessageBox.Show(
-        $"Error en la celda [{e.RowIndex}, {e.ColumnIndex}]. Se asignó un valor predeterminado.",
-        "Error de datos",
-        MessageBoxButtons.OK,
-        MessageBoxIcon.Warning
-    );
+            MessageBox.Show(
+                $"Error en la celda [{e.RowIndex}, {e.ColumnIndex}]. Se asignó un valor predeterminado.",
+                "Error de datos",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            );
 
-    e.ThrowException = false; // Evita que la excepción se propague
-}
+            e.ThrowException = false; // Evita que la excepción se propague
+        }
         private void DgvTaskList_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show(
@@ -496,46 +496,45 @@ namespace DoltSharp
 
         private void BtnShowNotification_Click(object sender, EventArgs e)
         {
-            MostrarFormularioDeNotificaciones();    
+            MostrarFormularioDeNotificaciones();
         }
 
         private void BtnShowReport_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show(
-     "¿Qué reporte deseas visualizar?\n\n" +
-     "Sí: Reporte de Tareas\n" +
-     "No: Reporte de Proyectos\n" +
-     "Cancelar: Salir sin abrir un reporte.",
-     "Seleccionar Reporte",
-     MessageBoxButtons.YesNoCancel,
-     MessageBoxIcon.Question
- );
+            // Mostrar el cuadro de diálogo personalizado sin enumeración
+            string selectedOption = CustomDialogHelper.Show(
+                "Seleccione el reporte que desea visualizar:\n" +
+                "- Reporte de Tareas\n" +
+                "- Reporte de Proyectos\n" +
+                "- Salir sin realizar ninguna acción.",
+                "Seleccionar Reporte"
+            );
 
-            var reportService = new ReportService();
-
-            if (result == DialogResult.Yes)
+            // Acciones según la opción seleccionada
+            if (selectedOption == "Tareas")
             {
-                // Mostrar reporte de tareas
+                // Generar el reporte de tareas
                 var taskService = new TaskFile();
                 var tasks = taskService.GetAllTasks();
-                reportService.ShowTaskReport(tasks);
+                _reportService.ShowTaskReport(tasks);
             }
-            else if (result == DialogResult.No)
+            else if (selectedOption == "Proyectos")
             {
-                // Mostrar reporte de proyectos
+                // Generar el reporte de proyectos
                 var projectService = new ProyectFile();
                 var projects = projectService.GetAllProjects();
-                reportService.ShowProjectReport(projects);
+                _reportService.ShowProjectReport(projects);
             }
-            else if (result == DialogResult.Cancel)
+            else if (selectedOption == "Salir")
             {
-                // Acción para cancelar
-                MessageBox.Show("Operación cancelada.", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroFramework.MetroMessageBox.Show(
+                    this,
+                    "La operación fue cancelada.",
+                    "Cancelar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
-
-       
     }
 }
-
-
